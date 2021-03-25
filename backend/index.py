@@ -11,39 +11,16 @@ from flask.json import dumps
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-
+from db.database import initDb
 
 app = Flask(__name__)
 
-app.config[
-    "SQLALCHEMY_DATABASE_URI"
-] = "postgresql://ultraapp:ultraapp*123@localhost:5432/trivia_app"
-
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-
-# TODO: debo pasar toda la lógica de base de datos a la carpeta "db"
-
-
-class CarsModel(db.Model):
-    __tablename__ = "cars"
-
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String())
-    model = db.Column(db.String())
-    doors = db.Column(db.Integer())
-
-    def __init__(self, name, model, doors):
-        self.name = name
-        self.model = model
-        self.doors = doors
-
-    def __repr__(self):
-        return f"<Car {self.name}>"
+initDb(app)
 
 
 @app.route("/", methods=["GET"])
 def index():
+    print("ahre")
     return render_template("index.html")
 
 
