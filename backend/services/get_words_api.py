@@ -10,8 +10,8 @@ class RandomTrivia:
         """
         credenciales de la api
         """
-        self.app_id = "cabc512f"
-        self.app_key = "3b63add2d492321f11b2cc2d2acabe58"
+        self.app_id = "c9b411dc"
+        self.app_key = "f0c3e4d7e4622e81d5174ec865322868"
         self.language = "es"
         self.fields = "definitions"
         self.strictMatch = "false"
